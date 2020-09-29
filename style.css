@@ -11,12 +11,43 @@ body {
   line-height: 1.8rem;
 }
 
+.fullscreen-video-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -10;
+}
+
+.fullscreen-video-wrap video {
+  overflow: hidden;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.main-container {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
 .container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 5%;
   margin-bottom: 25px;
 }
 
@@ -41,31 +72,59 @@ body {
 .navigation-items {
   display: flex;
   justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 1.2rem;
+  /* padding: 1rem 14.7rem; */
+}
+
+h3 {
+  margin-bottom: 1.5rem;
 }
 
 .background {
-  background: whitesmoke;
+  background: rgba(0, 0, 0, 0.3);
   position: fixed;
   right: 0;
   width: 100%;
-  height: 60px;
+  height: 80px;
   z-index: -1;
 }
 
 .clickable {
-  color: dodgerblue;
+  /* color: dodgerblue; */
+  color: gray;
+  /* text-shadow: 2px 2px rgba(0, 0, 0); */
   cursor: pointer;
   user-select: none;
 }
 
+.bullet {
+  color: red;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
 .clickable:hover {
-  filter: brightness(80%);
+  color: silver;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #fff, 0 0 10px #fff,
+      0 0 12px #fff, 0 0 14px #fff;
+  }
+  to {
+    text-shadow: 0 0 2px #000, 0 0 4px #000, 0 0 6px #000, 0 0 8px #000, 0 0 10px #000,
+      0 0 12px #000, 0 0 14px #000;
+  }
 }
 
 /* Images Container */
 .images-container {
   width: 800px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  margin: 0 auto;
 }
 
 .card {
@@ -83,7 +142,7 @@ body {
 .card-img-top {
   width: 100%;
   height: auto;
-  border-radius: 5px 5px 0 0;;
+  border-radius: 5px 5px 0 0;
 }
 
 .card-body {
@@ -94,8 +153,6 @@ body {
   margin: 10px auto;
   font-size: 24px;
 }
-
-
 
 /* Save Confirmation */
 .save-confirmed {
@@ -122,8 +179,12 @@ body {
     text-align: justify;
   }
 
+  .container {
+    margin-top: 15%;
+  }
+
   .images-container {
-   width: 100%;
+    width: 100%;
   }
 
   .card-title {
@@ -133,6 +194,4 @@ body {
   .save-confirmed {
     right: 25px;
   }
-
-    
 }
